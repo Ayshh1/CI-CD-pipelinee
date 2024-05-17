@@ -2,7 +2,7 @@ pipeline {
    
     agent any
   environment{
-     DOCKERHUB_CREDENTIALS=credentials('dockerhub_cred')
+     DOCKERHUB_CREDENTIALS=credentials('my-docker-credentials')
   }
     stages{
         stage('Build'){
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Docker build'){
             steps{
-                sh 'docker build -t ayesha497/jenkins-integration:latest .'
+                sh 'docker build -t ayshh/jenkins-integration:latest .'
             }
         }
         stage('login'){
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('push'){
             steps{
-                sh 'docker push ayesha497/jenkins-integration:latest'
+                sh 'docker push ayshh/jenkins-integration:latest'
             }
         }
         stage('deploy'){
